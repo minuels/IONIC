@@ -35,7 +35,7 @@ export class NodePage {
 
   addDev(device: Device) {
     this.service.addDev(device);
-    this.navCtrl.push(RoomPage);
+    this.navCtrl.setRoot(RoomPage);
   }
 
 }

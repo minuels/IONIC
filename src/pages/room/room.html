@@ -18,15 +18,10 @@
 <!--Lista de Dispositivos-->
 
     <ion-list>
-      <ion-list-header>
-        DISPOSITIVOS
-      </ion-list-header>
 
-      <ion-item *ngFor="let dev of devList$ | async">
-        <h2> {{dev.name}} </h2>
-        <p>Descripcion: {{dev.desc}} </p>
-        <p>Estado: {{ dev.status }} </p>
-        <p>Valor: {{dev.value}} </p>
+      <ion-item *ngFor="let dev of devList$ | async"
+      detail-push navPush="DevicePage" [navParams]="{dev:dev}">
+        <h1> {{dev.name}} </h1>
       </ion-item>
 
     </ion-list>
