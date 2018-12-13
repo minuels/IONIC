@@ -25,25 +25,39 @@ export class DevicePage {
   };
 
   d: Device;
+  st: string = this.device.status;
+  sts: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public service: FirebaseService) {
-
+ 
   }
 
   ionViewDidLoad() {
     this.device = this.navParams.get('dev');
+    this.st = 'Apagado';
   }
 
   devOn() {
     this.d = this.device;
     this.d.status = 'on';
     this.service.updateDev(this.device.key, this.d);
+    this.st = 'Prendido';
   }
 
   devOff() {
     this.d = this.device;
     this.d.status = 'off';
     this.service.updateDev(this.device.key, this.d);
+    this.st = 'Apagado';
   }
+
+  swt(sts: boolean) {
+    if(sts == false) {
+      this.devOff();
+    } else if(sts == true) {
+      this.devOn();
+    }
+  }
+  
 
 }

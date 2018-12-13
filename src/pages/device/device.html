@@ -16,14 +16,11 @@
 <ion-content padding>
 
   <p>Descripcion: {{ device.desc }} </p>
-  <p>Estado: {{ device.status }} </p>
+  <p>Estado: {{ this.st }} </p>
 
   <ion-item>
-    <button ion-button block round (click)="devOn()">Prender</button>
-  </ion-item>
-
-  <ion-item>
-    <button ion-button block round (click)="devOff()">Apagar</button>
+    <ion-label>Estado</ion-label>
+    <ion-toggle (click)="swt(this.sts)" [(ngModel)]="sts"></ion-toggle>
   </ion-item>
 
 </ion-content>
