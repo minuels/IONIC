@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Device } from '../../models/devices/device.model';
+import { FirebaseService } from '../../services/firebase-service/firebase.service';
 
 /**
  * Generated class for the DevicePage page.
@@ -23,11 +24,26 @@ export class DevicePage {
     value: null
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  d: Device;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public service: FirebaseService) {
+
   }
 
   ionViewDidLoad() {
     this.device = this.navParams.get('dev');
+  }
+
+  devOn() {
+    this.d = this.device;
+    this.d.status = 'on';
+    this.service.updateDev(this.device.key, this.d);
+  }
+
+  devOff() {
+    this.d = this.device;
+    this.d.status = 'off';
+    this.service.updateDev(this.device.key, this.d);
   }
 
 }

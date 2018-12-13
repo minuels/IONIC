@@ -21,8 +21,8 @@ export class FirebaseService {
     }
 
     //Actualizar dispostivo
-    updateDev(device: Device) {
-        return this.listRef$.update(device.key, device);
+    updateDev(key: string, d2: Device) {
+        return this.listRef$.update(key, d2);
     }
 
     //Eliminar dispostivo

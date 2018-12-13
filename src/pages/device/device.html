@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="secondary">
     <ion-title> {{device.name}} </ion-title>
   </ion-navbar>
 
@@ -14,5 +14,16 @@
 
 
 <ion-content padding>
+
+  <p>Descripcion: {{ device.desc }} </p>
+  <p>Estado: {{ device.status }} </p>
+
+  <ion-item>
+    <button ion-button block round (click)="devOn()">Prender</button>
+  </ion-item>
+
+  <ion-item>
+    <button ion-button block round (click)="devOff()">Apagar</button>
+  </ion-item>
 
 </ion-content>
